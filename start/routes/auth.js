@@ -13,6 +13,11 @@ Route.group(() => {
   Route.post('/refresh', 'AuthController.refresh').as('auth.refresh')
   Route.post('/logout', 'AuthController.logout').as('auth.logout')
 
+  //restore password routes
+  Route.post('reset-password', 'AuthController.forgot').as('auth.forgot')
+  Route.get('reset-password', 'AuthController.remember').as('auth.remember')
+  Route.put('reset-password', 'AuthController.reset').as('auth.reset')
+
 })
 .prefix('v1/auth')
 .namespace('Auth')
