@@ -22,12 +22,11 @@ class CouponOrderSchema extends Schema {
       .inTable('orders')
       .onDelete('cascade')
 
-
     })
   }
 
   down () {
-    this.drop('coupon_orders')
+    this.drop('coupon_order')
   }
 }
 
