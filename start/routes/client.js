@@ -21,12 +21,16 @@ Route.group(() => {
   /**
    * Product Resouces Route
    */
-  Route.resource('product', 'ProductController').apiOnly()
+  Route.get('products', 'ProductController.index')
+  Route.get('products/:id', 'ProductController.show')
 
   /**
    * Order Resouces Route
    */
-  Route.resource('orders', 'OrderController').apiOnly()
+  Route.get('orders', 'OrderController.index')
+  Route.get('orders/:id', 'OrderController.show')
+  Route.get('orders', 'OrderController.store')
+  Route.put('orders/:id', 'OrderController.put')
 
 
 }).prefix('v1')
