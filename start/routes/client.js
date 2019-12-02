@@ -16,21 +16,19 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+Route.group(() => {
 
-/**
- * importa rotas de autenticação
- */
-require('./auth')
+  /**
+   * Product Resouces Route
+   */
+  Route.resource('product', 'ProductController').apiOnly()
 
-/**
- * importa rotas de admin
- */
-require('./admin')
+  /**
+   * Order Resouces Route
+   */
+  Route.resource('orders', 'OrderController').apiOnly()
 
-/**
- * importa rotas de clientes
- */
-require('./client')
+
+}).prefix('v1')
+  .prefix('v1')
+  .namespace('Client')
