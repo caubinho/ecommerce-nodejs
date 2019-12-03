@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed667e22-3760-4c1d-b6da-6dce8a48440d" name="Default Changelist" comment="Controllers Admin">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ecommerce-nodejs.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/Http/Admin/UserController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/Http/Client/OrderController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/Http/Client/ProductController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start/routes/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/start/routes/client.js" afterDir="false" />
+    <list default="true" id="ed667e22-3760-4c1d-b6da-6dce8a48440d" name="Default Changelist" comment="auth controllers">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Http/Auth/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Http/Auth/AuthController.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +47,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Controllers/Http/Admin" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
@@ -82,6 +78,8 @@
       <option name="presentableId" value="Default" />
       <updated>1575244785043</updated>
       <workItem from="1575244786386" duration="4377000" />
+      <workItem from="1575310504831" duration="21000" />
+      <workItem from="1575320435522" duration="8738000" />
     </task>
     <task id="LOCAL-00001" summary="Routes">
       <created>1575272052920</created>
@@ -90,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575272052920</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="auth controllers">
+      <created>1575334947433</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575334947433</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,7 +106,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -113,6 +120,7 @@
     <MESSAGE value="Rotas Admin" />
     <MESSAGE value="Controllers Admin" />
     <MESSAGE value="Routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Routes" />
+    <MESSAGE value="auth controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth controllers" />
   </component>
 </project>
