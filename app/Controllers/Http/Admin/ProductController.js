@@ -29,7 +29,7 @@ class ProductController {
       query.where('name', 'LIKE', `%${name}%`)
     }
 
-    return products = await query.pagination(pagination.page, pagination.limit)
+    const products = await query.paginate(pagination.page, pagination.limit)
     return response.send(products)
   }
 
@@ -47,7 +47,12 @@ class ProductController {
 
       const {name, description, price, image_id} = request.all()
 
-      const product = await Product.create({name, description, price, image_id})
+      const product = await Product.create({
+        name,
+        description,
+        price,
+        image_id
+      })
 
       return response.status(201).send(product)
 
