@@ -33,8 +33,9 @@ class UserController {
 
     const users = await query.paginate(pagination.page, pagination.limit)
 
-    return response,send(users)
+    return response.send(users)
   }
+
 
   /**
    * Create/save a new user.
@@ -45,6 +46,26 @@ class UserController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+
+    try {
+      const userData = request.only([
+        'name',
+        'username',
+        'email',
+        'password',
+        'image_id'
+      ])
+
+      const user = await User.create(userData)
+
+      return response.status(201).send(user)
+
+    } catch (error) {
+
+      return response.status(400).send({message:'Não foi possivel cadastrar usuário'})
+
+    }
+
   }
 
   /**
@@ -56,7 +77,11 @@ class UserController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params: {id}, request, response }) {
+
+    const user = await User.findOrFail(id)
+
+    return response.send(user)
   }
 
   /**
