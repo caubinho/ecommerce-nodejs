@@ -62,7 +62,9 @@ class UserController {
 
     } catch (error) {
 
-      return response.status(400).send({message:'Não foi possivel cadastrar usuário'})
+      return response
+        .status(400)
+        .send({message:'Não foi possivel cadastrar usuário no momento!'})
 
     }
 
