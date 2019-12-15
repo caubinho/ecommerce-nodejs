@@ -88,14 +88,30 @@ class UserController {
 
   /**
    * Render a form to update an existing user.
-   * GET users/:id/edit
+   * POST users/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
-  async edit ({ params, request, response, view }) {
+  async update ({ params:{id}, request, response }) {
+
+    const user = await User.findOrFail(id)
+
+    const userData = request.only([
+      'name',
+      'surname',
+      'email',
+      'password',
+      'image_id'
+    ])
+
+    user.merge(userData)
+    await user.save()
+
+    return response.send(user)
+
+
   }
 
   /**
@@ -106,7 +122,21 @@ class UserController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
+  async destroy ({ params: {id}, request, response }) {
+
+    const user = User.findOrFail(id)
+
+    try {
+      await user.delete()
+
+      return response.status(204).send()
+
+    } catch (error) {
+      response
+        .status(500)
+        .send({message: 'Não foi possivel excluir este usuario!'})
+    }
+
   }
 }
 
