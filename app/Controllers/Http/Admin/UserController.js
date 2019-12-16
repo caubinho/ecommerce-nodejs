@@ -50,7 +50,7 @@ class UserController {
     try {
       const userData = request.only([
         'name',
-        'username',
+        'surname',
         'email',
         'password',
         'image_id'
@@ -124,7 +124,7 @@ class UserController {
    */
   async destroy ({ params: {id}, request, response }) {
 
-    const user = User.findOrFail(id)
+    const user = await User.findOrFail(id)
 
     try {
       await user.delete()
