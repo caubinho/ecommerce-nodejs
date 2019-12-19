@@ -109,7 +109,7 @@ class ImageController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params: { id }, request, response, view }) {
+  async show ({ params: { id }, response}) {
 
     const image = await Image.findOrFail(id)
 
@@ -124,7 +124,22 @@ class ImageController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
+  async update ({ params: {id}, request, response }) {
+    const image = await Image.findOrFail(id)
+
+    try {
+      image.marge(request.only(['original_name']))
+
+      await image.save()
+
+      return response.status(200).send(image)
+
+    } catch (error) {
+      return response.status(400).send({
+        message: 'Não foi possivel atualizar esta imagem no momento!'
+      })
+    }
+
   }
 
   /**
