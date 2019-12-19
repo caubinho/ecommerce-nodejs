@@ -5,6 +5,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Image = use('App/Models/Image')
+const { manage_single_upload, manage_multiple_upload } = use('App/Helpers')
 
 /**
  * Resourceful controller for interacting with images
@@ -28,17 +29,6 @@ class ImageController {
       return response.send(images)
   }
 
-  /**
-   * Render a form to be used for creating a new image.
-   * GET images/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
-  }
 
   /**
    * Create/save a new image.
@@ -49,6 +39,65 @@ class ImageController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+
+    try {
+      //captura uma imagem ou mais do request
+
+      const fileJar = resquest.file('images', {
+        types: ['images'],
+        size: '2mb'
+      })
+
+      let images = []
+
+      // caso seja um unico arquivo = image_single_upload
+      // caso seja varios arquivos=image_multiple_upload
+
+      if(!fileJar.files){
+
+        const file = await manage_single_upload(fileJar)
+
+        if(file.moved()){
+          const image = await Image.create({
+            path: file.fileName,
+            size: file.size,
+            original_name: file.clientName,
+            extension: file.subtype
+          })
+
+          image.push(image)
+
+          return response.status(201).send({success: images, errors: {}})
+        }
+
+        return response.status(400).send({
+          message: 'Imagem não foi enviada'
+        })
+      }
+
+      let files = await manage_multiple_upload(fileJar)
+
+      await Promise.all(
+        files.successes.map(async file => {
+          const image = await Image.create({
+            path: file.fileName,
+            size: file.size,
+            original_name: file.clientName,
+            extension: file.subtype
+          })
+
+          images.push(image)
+        })
+      )
+
+      return response.status(201).send({successes:images, error: files.errors})
+    } catch (error) {
+
+      return response.status(400).send({
+        message: 'Não foi possivel processar a sua solicitação!'
+      })
+
+    }
   }
 
   /**
