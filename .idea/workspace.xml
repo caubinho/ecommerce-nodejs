@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ed667e22-3760-4c1d-b6da-6dce8a48440d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/Http/Admin/CategoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Http/Admin/CategoryController.js" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,8 +60,20 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/app/Controllers/Http/Admin" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Node.js.AuthController.js">
     <configuration name="AuthController.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app/Controllers/Http/Auth/AuthController.js" working-dir="$PROJECT_DIR$/app/Controllers/Http/Auth">
@@ -84,18 +96,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\Caubinho\AppData\Roaming\Subversion</configuration>
   </component>
@@ -112,6 +112,9 @@
       <workItem from="1575822236491" duration="628000" />
       <workItem from="1575823712803" duration="35000" />
       <workItem from="1575823788681" duration="26000" />
+      <workItem from="1583516498830" duration="79000" />
+      <workItem from="1583516606262" duration="319000" />
+      <workItem from="1583516995015" duration="134000" />
     </task>
     <task id="LOCAL-00001" summary="Routes">
       <created>1575272052920</created>

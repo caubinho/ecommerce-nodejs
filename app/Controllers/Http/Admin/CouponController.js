@@ -45,6 +45,47 @@ class CouponController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    const trx = await Database.beginTransaction()
+
+    /**
+     * 1 - produto - pode ser utilizado apenas em produtos especificos
+     * 2 - clients - pode ser utilizado apenas por clientes especificos
+     * 3 - clients e procucts - pode ser utilizado somente em produtos e clientes espcificos
+     * 4 - pode ser utilizado por qualquer clientes em qualquer pedido
+     */
+
+    var can_use_for = {
+      client: false,
+      product: false
+    }
+
+    try {
+      const couponData = request.only([
+
+        'code',
+        'discount',
+        'valid_from',
+        'valid_until',
+        'quantity',
+        'type',
+        'recursive'
+
+      ])
+
+      const {users, products} = request.only(['users', ''])
+      const coupon = await Coupon.create(couponData, trx)
+
+      // starts service layer
+      const service = new Service(coupon, trx)
+
+
+
+
+
+    } catch (error) {
+
+    }
+
   }
 
   /**
@@ -96,6 +137,7 @@ class CouponController {
       return response.status(204).send()
 
     } catch (error) {
+
       await trx.rollback()
 
       return response.status(400).send({
