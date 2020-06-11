@@ -29,7 +29,7 @@ class CouponService {
       return false
     }
 
-    await this.model.order().sync(orders, null, this.trx)
+    await this.model.orders().sync(orders, null, this.trx)
   }
 
   async syncProducts(products){
