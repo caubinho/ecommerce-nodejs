@@ -1,5 +1,7 @@
 'use strict'
 
+const Database = use(Database)
+
 class OrderService {
 
   constructor(model, trx = false){
@@ -39,6 +41,26 @@ class OrderService {
 
         await item.save(this.trx)
       }))
+  }
+
+  //verificador se o cupom não esta associado a produtos e clientes especifico
+  async canApplyDiscount(coupon){
+    const couponProducts = await Database.from('coupon_products')
+      .where('coupon_id', coupon_id)
+      .pluck('product_id')
+
+      const couponClients = await Database.from('coupon_user')
+        .where('coupon_id', coupon_id)
+        .pluck('user_id')
+
+        if(Array.isArray(couponProducts) && couponProducts-length < 1 && Array.isArray(couponClients) && couponClients < 1){
+
+          /**
+           * Caso nao esteja associado a cliente ou produto especifico, é de uso livre
+           */
+
+           return true
+        }
   }
 
 

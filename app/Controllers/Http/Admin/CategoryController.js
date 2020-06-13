@@ -38,7 +38,6 @@ class CategoryController {
     return response.send(categories)
   }
 
-
   /**
    * Create/save a new category.
    * POST categories

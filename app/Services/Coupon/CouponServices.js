@@ -13,7 +13,9 @@ class CouponService {
   constructor(model, trx = null){
 
     this.model = model,
+
     this.trx = trx
+
   }
 
   async syncUsers (users){
